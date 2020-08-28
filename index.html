@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+		<script src="scripts/dial.js"></script>
+        <script src="scripts/go.js"></script>
+        <script src="scripts/inspect.js"></script>
+        <script src="scripts/inventory.js"></script>
+        <script src="scripts/logic.js"></script>
+        <script src="scripts/movement.js"></script>
+        <script src="scripts/objects.js"></script>
+        <script src="scripts/open.js"></script>
+        <script src="scripts/play.js"></script>
+        <script src="scripts/take.js"></script>
+        <script src="scripts/terminal.js"></script>
+        <script src="scripts/use.js"></script>
+        <script src="scripts/vars.js"></script>
+		<style>
+			body{
+				font-size: 25px!important;
+			}
+
+			.top{
+				position: absolute;
+				width: 100%;
+				height: 50%;
+				top: 0;
+				left: 0;
+				background-color: black;
+				color: white;
+				padding-left: 25%;
+			}
+
+			pre{
+				color: white;
+			}
+
+			.bottom{
+				position: absolute;
+				width: 100%;
+				height: 50%;
+				top: 50%;
+				left: 0;
+				border-top: green;
+				border-style: inset;
+				border-left: none;
+				border-right: none;
+				border-bottom: none;
+    			line-height: 125%!important;
+    			font-size: 25px!important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="1" class="top">
+			<pre id="obj"></pre>
+		</div>
+		<div id="2" class="bottom">
+
+		</div>
+	</body>
+	<script>
+$('#2').terminal({
+	Help: function(){
+		this.update(-1, null);
+		this.echo("[[;red;]Try one of these commands: \n > Inspect <object> \n > Open <object> \n > Take <object> \n > Inventory \n > Use <object>]");
+	},
+	Go: function(what) {
+		this.echo(doGo(what));
+	},
+	go: function(what){
+		this.echo(doGo(what));
+	},
+	Inspect: function(what){
+		this.echo(doInspect(what));
+	},
+	inspect: function(what){
+		this.echo(doInspect(what));
+	},
+	Take: function(what){
+		this.echo(doTake(what));
+	},
+	take: function(what){
+		this.echo(doTake(what));
+	},
+	Open: function(what, door){
+		this.echo(doOpen(what, door));
+	},
+	open: function(what, door){
+		this.echo(doOpen(what, door));
+	},
+	Inventory: function(){
+		this.echo(doInventory());
+	},
+	inventory: function(){
+		this.echo(doInventory());
+	},
+	Use: function(what, door){
+		this.echo(doUse(what, door));
+		if(runEnd){
+			setTimeout(() => { 
+			this.echo("[[;green;]down...]");
+			setTimeout(() => {
+				this.echo("[[;green;]down...]");
+				setTimeout(() => {
+					this.echo("[[;green;]down...]");
+					setTimeout(() => {
+    					this.echo("[[;green;]down...]");
+    					setTimeout(() => {
+		    				this.echo("[[;green;]down...]");
+		    				setTimeout(() => {
+		    					enterRoom(18);
+			    				this.echo("[[;yellow;]The elevator grinds to a halt, the doors open, and you step out into a grimy basement. It's dark but you can make out a light on the far side of the room.]");
+			    				setTimeout(() => {
+			    					$('#obj').html(basement2);
+				    				this.echo("[[;yellow;]As you approach the light you see a child-size form huddled against the wall...]");
+				    				setTimeout(() => {
+					    				this.echo("[[;yellow;]You stop walking and try to focus your eyes.]");
+						    			setTimeout(() => {
+						    				$('#obj').html(basement3);
+						    				this.echo("[[;yellow;]Suddenly the child's head turns and you see two holes where eyes should be, somehow darker then the shadows covering the rest of it's face.]");
+						    				setTimeout(() => {
+							    				this.echo("[[;yellow;]Startled you back up towards the elevator but as you turn to run you trip and fall.]");
+							    				setTimeout(() => {
+							    					$('#obj').html(basement4);
+								    				this.echo("[[;yellow;]As you tumble head-first into the hole that wasn't there a moment ago all you can think is how you wish you could ][[;red;]Go home][[;yellow;] and hug your puppy again.]");
+								    				setTimeout(() => {
+									    				this.echo("[[;yellow;]When you hit the ground you realize your eyes have been closed.]");
+									    				setTimeout(() => {
+									    					enterRoom(1);
+									    					resetInventory();
+										    				this.echo("[[;green;]Opening them, you look around and find yourself back in front of the house.]");
+										    				setTimeout(() => {
+										    					this.echo("[[;white;]Welcome adventurer!]");
+										    				}, 5000);
+										    			}, 5000);
+										    		}, 5000);
+										    	}, 5000);
+										    }, 5000);
+										}, 5000);
+									}, 5000);
+								}, 5000);
+							}, 5000);
+						}, 5000);
+					}, 5000);
+				}, 5000);
+			}, 5000);
+		}, 5000);
+		
+		done = true;
+		runEnd = false;
+		}
+	},
+	use: function(what, door){
+		this.echo(doUse(what, door));
+
+		if(runEnd){
+			setTimeout(() => { 
+			this.echo("[[;green;]down...]");
+			setTimeout(() => {
+				this.echo("[[;green;]down...]");
+				setTimeout(() => {
+					this.echo("[[;green;]down...]");
+					setTimeout(() => {
+    					this.echo("[[;green;]down...]");
+    					setTimeout(() => {
+		    				this.echo("[[;green;]down...]");
+		    				setTimeout(() => {
+		    					enterRoom(18);
+			    				this.echo("[[;yellow;]The elevator grinds to a halt, the doors open, and you step out into a grimy basement. It's dark but you can make out a light on the far side of the room.]");
+			    				setTimeout(() => {
+			    					$('#obj').html(basement2);
+				    				this.echo("[[;yellow;]As you approach the light you see a child-size form huddled against the wall...]");
+				    				setTimeout(() => {
+					    				this.echo("[[;yellow;]You stop walking and try to focus your eyes.]");
+						    			setTimeout(() => {
+						    				$('#obj').html(basement3);
+						    				this.echo("[[;yellow;]Suddenly the child's head turns and you see two holes where eyes should be, somehow darker then the shadows covering the rest of it's face.]");
+						    				setTimeout(() => {
+							    				this.echo("[[;yellow;]Startled you back up towards the elevator but as you turn to run you trip and fall.]");
+							    				setTimeout(() => {
+							    					$('#obj').html(basement4);
+								    				this.echo("[[;yellow;]As you tumble head-first into the hole that wasn't there a moment ago all you can think is how you wish you could ][[;red;]Go home][[;yellow;] and hug your puppy again.]");
+								    				setTimeout(() => {
+									    				this.echo("[[;yellow;]When you hit the ground you realize your eyes have been closed.]");
+									    				setTimeout(() => {
+									    					enterRoom(1);
+									    					resetInventory();
+										    				this.echo("[[;green;]Opening them, you look around and find yourself back in front of the house.]");
+										    				setTimeout(() => {
+										    					this.echo("[[;white;]Welcome adventurer!]");
+										    				}, 5000);
+										    			}, 5000);
+										    		}, 5000);
+										    	}, 5000);
+										    }, 5000);
+										}, 5000);
+									}, 5000);
+								}, 5000);
+							}, 5000);
+						}, 5000);
+					}, 5000);
+				}, 5000);
+			}, 5000);
+		}, 5000);
+		
+		done = true;
+		runEnd = false;
+		}
+	},
+	Dial: function(num){
+		this.echo(doDial(num));
+	},
+	dial: function(num){
+		this.echo(doDial(num));
+	},
+	Play: function(note){
+		this.echo(doPlay(note));
+	},
+	play: function(note){
+		this.echo(doPlay(note));
+	}
+}, {
+	checkArity: false,
+    greetings: "[[;white;]Welcome adventurer!\nType 'Help' if you need it, or try some commands like ][[;red;]Inspect][[;white;] or ][[;red;]Open][[;white;].]"
+});
+	</script>
+</html>
